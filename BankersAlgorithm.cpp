@@ -118,7 +118,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
                     }
                     safeSequence[noOfFinished] = i;
                     finished[i] = true;
-                    noOfFinished=+;
+                    noOfFinished=+1;
                     safeState = true;
                 }
             }
