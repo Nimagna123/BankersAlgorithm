@@ -56,7 +56,7 @@ int main(){
 	calculateNeedResources();    
 	safeSequence = (int *)malloc(noOfProcess * sizeof(*safeSequence));
 	int safeOrNot = getSafeProcessSequence(resourcesCount,allocatedResourcesCount,needResourcesCount);
-	if(safeOrNot==true){
+	if(safeOrNot){
 		printf("Safe Sequence :");
 		for(int i=0; i<noOfProcess; i++){
 			printf("%d ",safeSequence[i]);
