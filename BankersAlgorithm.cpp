@@ -104,7 +104,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
     while(noOfFinished < noOfProcess) {
         bool safeState = false;
         for(int i=0; i<noOfProcess; i++) {
-            if(finished[i]==false) {
+            if(!finished[i]) {
                 bool possible = true;
                 for(int j=0; j<noOfResources; j++){				
                     if(needResourcesCount[i][j] > temporaryResources[j]){
@@ -112,7 +112,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
                         break;
                     }
                 }
-                if(possible==true){
+                if(possible){
                     for(int j=0; j<noOfResources; j++){
                         temporaryResources[j] += allocatedResourcesCount[i][j];
                     }
@@ -123,7 +123,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
                 }
             }
         }
-        if(safeState==false){
+        if(!safeState){
             for(int k=0; k<noOfProcess; k++)
 				safeSequence[k] = -1;
             return false;
@@ -180,7 +180,7 @@ void* processCode(void *arg) {
     printf("\n\n");
     sleep(1);
 
-    noOfProcessComplete++;
+    noOfProcessComplete+=1;
     pthread_cond_broadcast(&cond);
     pthread_mutex_unlock(&lock);
 	pthread_exit(NULL);
