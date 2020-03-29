@@ -19,6 +19,7 @@ void* processCode(void* );
 void calculateNeedResources();
 bool getSafeProcessSequence(int *,int **,int **);
 
+//Main function
 int main(){
 	printf("\nEnter Number Of Process Count: ");
 	scanf("%d",&noOfProcess);
@@ -81,6 +82,7 @@ int main(){
     printf("\nAll Process Finished");	
 }
 
+//Calculate the need request based on max resource needed and allocated resource
 void calculateNeedResources(){
 	needResourcesCount = (int **)malloc(noOfProcess * sizeof(*needResourcesCount));
     for(int i=0; i<noOfProcess; i++)
@@ -91,6 +93,7 @@ void calculateNeedResources(){
             needResourcesCount[i][j] = maxRequiredResoucesCount[i][j] - allocatedResourcesCount[i][j];
 }
 
+//Find safe sequence using banker's algorithm.
 bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,int **needResourcesCount) {
     int temporaryResources[noOfResources];
     for(int i=0; i<noOfResources; i++)
@@ -130,6 +133,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
     return true;
 }
 
+//Simulate the execution of process using multithreading
 void* processCode(void *arg) {
     int p = *((int *) arg);
     pthread_mutex_lock(&lock);
