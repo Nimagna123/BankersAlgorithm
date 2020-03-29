@@ -65,8 +65,8 @@ int main(){
 	
 	printf("\nRunning Processes...\n\n"); 
 	pthread_t processes[noOfProcess];
-    pthread_attr_t attribute;
-    pthread_attr_init(&attribute);
+    	pthread_attr_t attribute;
+    	pthread_attr_init(&attribute);
 
 	int processNumber[noOfProcess];
 	for(int i=0; i<noOfProcess; i++)
@@ -118,7 +118,7 @@ bool getSafeProcessSequence(int *resourcesCount,int **allocatedResourcesCount,in
                     }
                     safeSequence[noOfFinished] = i;
                     finished[i] = true;
-                    ++noOfFinished;
+                    noOfFinished=+;
                     safeState = true;
                 }
             }
