@@ -63,8 +63,7 @@ int main(){
 		}
 	}
 	
-	printf("\nRunning Processes...\n\n");
-    sleep(1);
+	printf("\nRunning Processes...\n\n"); 
 	pthread_t processes[noOfProcess];
     pthread_attr_t attribute;
     pthread_attr_init(&attribute);
